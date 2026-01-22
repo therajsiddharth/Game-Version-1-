@@ -1,0 +1,78 @@
+/* ================== GLOBAL RESET ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================== BODY ================== */
+body {
+  background: radial-gradient(circle at top, #020617, #000000);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  color: #e5e7eb;
+}
+
+/* ================== CANVAS ================== */
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+
+  /* Subtle glow */
+  box-shadow:
+    0 0 20px rgba(34, 197, 94, 0.15),
+    inset 0 0 40px rgba(15, 23, 42, 0.8);
+}
+
+/* ================== HUD FEEL (TEXT SHARPENING) ================== */
+canvas {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* ================== CRT SCANLINES EFFECT ================== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+}
+
+/* ================== VIGNETTE ================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.7) 100%
+  );
+}
+
+/* ================== GAME OVER / PAUSE GLOW ================== */
+.glow-text {
+  text-shadow:
+    0 0 5px #22c55e,
+    0 0 15px #22c55e,
+    0 0 30px rgba(34, 197, 94, 0.8);
+}
+
+/* ================== OPTIONAL: CURSOR ================== */
+body {
+  cursor: crosshair;
+}
